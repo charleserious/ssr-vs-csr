@@ -111,10 +111,27 @@ In our project, the SSR and CSR apps will are working with an external API, so t
 ## Questions
 
 - What is the difference between SSR and CSR?
+  - SSR handle the routes on server by sending different HTML file
+  - SSR renders the components on server and send the output of the render result to the browser, in our case only HTML docs
+  - CSR handle the routes on client side it's not the page navigation just route shift
+  - CSR renders the components on client side by runs the JavaScript code
 - In what ways do you need to change your code to switch between CSR and SSR?
+  - In Next,js we need 'use client' on top of the component file to make it a Client Side Component
+  -            with no 'use client' on top of the component file it's a Server Side Component
+  -            Server Side Component can't use `useState` and `useEffect` I guess there's no way for server to send the new constants to the client
 - What are the advantages of SSR?
+  - Fast page loading
+  - SEO friendly
+  - Good for static content site
+  - Big relief for Browser, not much JavaScript code to run
 - What are the advantages of CSR?
+  - Dynamically generate the content
+  - Highly interactivity
+  - Ideal for dynamic apps
 - What are the tradeoffs?
+  - Not friend in SEO for CSR
+  - Form submition could trigger whole page reload for SSR
+  - Actually I don't see the bigger beneficial for either do the computational on server or on the client, case by case.
 
 ## Conclusion
 
