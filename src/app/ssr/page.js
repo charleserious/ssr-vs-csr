@@ -17,13 +17,14 @@ async function getData() {
 
   const [json] = await response.json();
 
-  //
-  //
   // Exercise 2 - Optimize the image loading here...
-  //
-  //
+  const result = {
+    ...json,
+    ...(json.url ? { image: await imageUrlToBase64(json.url) } : undefined),
+  };
+
   // Uncomment this when you're ready
-  return json;
+  return result;
 }
 
 export default async function SSR() {
